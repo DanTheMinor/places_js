@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Word Replacer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/styles.css" type="text/css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/scripts.js"></script>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Find and Replace Words</h1>
+        <p class="lead"><br>Enter a sentence and a word to find, then enter a word to replace that with and see as it is replaced through the sentence.</p>
+        <form id="word_replace">
+          <div class="form-group">
+            <label for="sentence_input"><b>Sentence:</b></label>
+            <input required id="sentence_input" type="text" class="form-control">
+            <br>
+            <label for="find_input"><b>Word to Find:</b></label>
+            <input required id="find_input" type="text">
+            <label for="replace_input"><b>Replace With:</b></label>
+            <input required id="replace_input" type="text">
+          </div>
+          <div id="result">
+            <div class="alert alert-info"><p><em><span class="output"></span></em></p></div>
+          </div>
+          <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
