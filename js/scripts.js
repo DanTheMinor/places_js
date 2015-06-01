@@ -33,10 +33,14 @@ $(document).ready(function(){
         $("ul#landmark-results").append("<li>" + landmark + "</li>");
       });
       $("#notes-results").text(newPlace.notes)
-      $("input").val("");
+
+
     })
     // $("ul#landmark-results").append("<li><span class='place'>" + newPlace.location )
 
+    $("input").val("");
+    $("select").val("No Time Selected");
+    $("textarea").val("");
 
   $("#result").show();
   });
