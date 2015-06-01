@@ -18,7 +18,7 @@ $(document).ready(function(){
     var newPlace = {place: inputtedLocation, landmarks: [], timeOfYear: inputtedTimeOfYear, notes: inputtedNotes};
 
     $(".landmark-holder").each(function() {
-      var inputtedLandmark = $(this).find("input.landmarks").val();
+      var inputtedLandmark = $(this).find("input").val();
       newPlace.landmarks.push(inputtedLandmark);
     });
 
@@ -29,18 +29,27 @@ $(document).ready(function(){
       $(".show-place h3").text(newPlace.place);
       $("#time-of-year-results").text(newPlace.timeOfYear);
       $("ul#landmark-results").text("");
+
       newPlace.landmarks.forEach(function(landmark) {
         $("ul#landmark-results").append("<li>" + landmark + "</li>");
       });
-      $("#notes-results").text(newPlace.notes)
 
-
-    })
-    // $("ul#landmark-results").append("<li><span class='place'>" + newPlace.location )
+      $("#notes-results").text(newPlace.notes);
+      $(".place-info").show();
+    });
 
     $("input").val("");
     $("select").val("No Time Selected");
     $("textarea").val("");
+
+    $("#landmark-forms").replaceWith('<div id="landmark-forms">' +
+                                '<div class="landmark-holder">' +
+                                  '<div class="form-group">' +
+                                    '<label for="landmarks"><b>Landmarks:</b></label>' +
+                                    '<input required id="landmarks" type="text" class="form-control landmarks">' +
+                                  '</div>' +
+                                '</div>' +
+                                '</div>');
 
   $("#result").show();
   });

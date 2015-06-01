@@ -4,3 +4,19 @@
 .show-place{
   display: none;
 }
+
+#place-results li{
+  cursor: pointer;
+  color: #0088cc;
+}
+
+#place-results li:hover {
+  text-decoration: underline;
+}
+
+.place-info {
+  float: right;
+  background-color: white;
+  border-radius: 10px;
+  display: none;
+}

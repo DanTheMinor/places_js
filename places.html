@@ -12,6 +12,7 @@
         <h1>Places you've been</h1>
         <p class="lead"><br>Catalog all the places that you've been!</p>
         <form id="places">
+          <!--The start of the form-->
           <div class="form-group">
             <label for="location"><b>Location:</b></label>
             <input required id="location" type="text" class="form-control">
@@ -35,21 +36,23 @@
             <label for="notes"><b>Notes:</b></label>
             <textarea id="notes" rows="5" class="form-control"></textarea>
           </div>
-          <div id="result" class="alert alert-info">
-            <h2>Places you've been!</h2>
-            <ul id="place-results">
-
-            </ul>
-            <div class="show-place">
-              <h3></h3>
-
-              <p>Time of Year: <span id="time-of-year-results"></span></p>
-              <p>Landmarks:
-              <ul id="landmark-results">
-
+          <!--The end of the form-->
+          <div id="result" class="alert alert-info row">
+            <div class="col-md-6">
+              <h2>Places you've been!</h2>
+              <ul id="place-results">
               </ul>
-              </p>
-              <p>Notes: <span id="notes-results"></span></p>
+            </div>
+            <div class="col-md-4 place-info">
+              <div class="show-place">
+                <h3></h3>
+                <p>Time of Year: <span id="time-of-year-results"></span></p>
+                <p>Landmarks:
+                <ul id="landmark-results">
+                </ul>
+                </p>
+                <p>Notes: <span id="notes-results"></span></p>
+              </div>
             </div>
           </div>
           <button type="submit" class="btn btn-lg btn-primary">Submit</button>
