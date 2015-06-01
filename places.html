@@ -15,23 +15,25 @@
         <p class="lead"><br>Catalog all the places that you've been!</p>
         <form id="places">
           <!--The start of the form-->
-          <div class="form-group">
-            <label for="location"><b>Location:</b></label>
-            <input required id="location" type="text" class="form-control">
-            <br>
+            <div class="form-group">
+              <label for="location"><b>Location:</b></label>
+              <input required id="location" type="text" class="form-control">
+            </div>
             <div id="landmark-forms">
               <div class="landmark-holder">
                 <div class="form-group">
                   <label for="landmarks"><b>Landmarks:</b></label>
-                  <input required id="landmarks" type="text" class="form-control landmarks">
+                  <input id="landmarks" type="text" class="form-control landmarks">
                 </div>
               </div>
             </div>
+            <div id="eat-forms">
             <div class="eat-holder">
               <div class="form-group">
                 <label for="eat"><b>Eats:</b></label>
                 <input type="text" class="form-control eat">
               </div>
+            </div>
             </div>
             <div class="form-group">
             <label for="time-of-year"><b>Time of year you visited: </b></label>
@@ -43,9 +45,14 @@
               <option value="Winter">Winter</option>
             </select>
             </div>
-            <label for="notes"><b>Notes:</b></label>
-            <textarea id="notes" rows="5" class="form-control"></textarea>
-          </div>
+            <div class="form-group">
+              <label for="notes"><b>Notes:</b></label>
+              <textarea id="notes" rows="5" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="image-input"><b>Image URL:</b></label>
+              <input id="image-input" type="text" class="form-control">
+            </div>
           <!--The end of the form-->
           <div id="result" class="alert alert-info row">
             <div class="col-md-6">
@@ -66,6 +73,8 @@
                 </ul>
                 </p>
                 <p>Time of Year: <span id="time-of-year-results"></span></p>
+                <div class="place-image">
+                </div>
               </div>
             </div>
           </div>

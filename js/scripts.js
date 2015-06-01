@@ -3,16 +3,18 @@ $(document).ready(function(){
     $("#landmark-forms").append('<div class="landmark-holder">' +
                                   '<div class="form-group">' +
                                     '<label for="landmarks"><b>Landmarks:</b></label>' +
-                                    '<input required id="landmarks" type="text" class="form-control landmarks">' +
+                                    '<input id="landmarks" type="text" class="form-control landmarks">' +
                                   '</div>' +
                                 '</div>');
   });
 
-$("#new-eat").click(function() {
-  $(".eat-holder").append('<div class="form-group">' +
-                            '<label for="eat"><b>Eats:</b></label>' +
-                            '<input type="text" class="form-control eat">' +
-                          '</div>');
+  $("#new-eat").click(function() {
+    $("#eat-forms").append('<div class="eat-holder">' +
+                                  '<div class="form-group">' +
+                                    '<label for="eat"><b>Eats:</b></label>' +
+                                    '<input type="text" class="form-control eat">' +
+                                  '</div>' +
+                                '</div>');
   });
 
   $("form#places").submit(function(event) {
@@ -21,26 +23,36 @@ $("#new-eat").click(function() {
     var inputtedLocation = $("input#location").val();
     var inputtedTimeOfYear = $("select#time-of-year").val();
     var inputtedNotes = $("textarea#Notes").val();
+    var inputtedImage = $("input#image-input").val();
 
-    var newPlace = {place: inputtedLocation, landmarks: [], timeOfYear: inputtedTimeOfYear, notes: inputtedNotes, eats: []};
+    var newPlace = {place: inputtedLocation, landmarks: [], timeOfYear: inputtedTimeOfYear, image: inputtedImage, notes: inputtedNotes, eats: []};
 
     $(".landmark-holder").each(function() {
       var inputtedLandmark = $(this).find("input").val();
       newPlace.landmarks.push(inputtedLandmark);
     });
 
-    $(".eat").each(function() {
-      var inputtedEat = $(this).val();
+    $(".eat-holder").each(function() {
+      var inputtedEat = $(this).find("input").val();
       newPlace.eats.push(inputtedEat);
     });
 
     $("ul#place-results").append("<li><span class='place'>" + newPlace.place + "</span></li>");
+
 
     $(".place").last().click(function() {
       $(".show-place").show();
       $(".show-place h3").text(newPlace.place);
       $("#time-of-year-results").text(newPlace.timeOfYear);
       $("ul#landmark-results").text("");
+      $("ul#eat-results").text("");
+      $("div.place-image").replaceWith('<div class="place-image">' +
+                                       '</div>');
+
+
+      $("div.place-image").append('<div class="place-image">' +
+                                         "<img src=" + inputtedImage + "/>" +
+                                       '</div>');
 
       newPlace.landmarks.forEach(function(landmark) {
         $("ul#landmark-results").append("<li>" + landmark + "</li>");
@@ -67,10 +79,12 @@ $("#new-eat").click(function() {
                                       '</div>' +
                                     '</div>');
 
-    $(".eat-holder").replaceWith('<div class="eat-holder">' +
-                                  '<div class="form-group">' +
-                                    '<label for="eat"><b>Eats:</b></label>' +
-                                    '<input type="text" class="form-control eat">' +
+    $("#eat-forms").replaceWith('<div id="eat-forms">' +
+                                  '<div class="eat-holder">' +
+                                    '<div class="form-group">' +
+                                      '<label for="eat"><b>Eats:</b></label>' +
+                                      '<input type="text" class="form-control eat">' +
+                                    '</div>' +
                                   '</div>' +
                                 '</div>');
 

@@ -24,3 +24,10 @@
 .bottom-border {
   border-bottom: 1px solid black;
 }
+
+img{
+    width:100%; /* you can use % */
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
