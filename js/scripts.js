@@ -8,6 +8,13 @@ $(document).ready(function(){
                                 '</div>');
   });
 
+$("#new-eat").click(function() {
+  $(".eat-holder").append('<div class="form-group">' +
+                            '<label for="eat"><b>Eats:</b></label>' +
+                            '<input type="text" class="form-control eat">' +
+                          '</div>');
+  });
+
   $("form#places").submit(function(event) {
     event.preventDefault();
 
@@ -15,11 +22,16 @@ $(document).ready(function(){
     var inputtedTimeOfYear = $("select#time-of-year").val();
     var inputtedNotes = $("textarea#Notes").val();
 
-    var newPlace = {place: inputtedLocation, landmarks: [], timeOfYear: inputtedTimeOfYear, notes: inputtedNotes};
+    var newPlace = {place: inputtedLocation, landmarks: [], timeOfYear: inputtedTimeOfYear, notes: inputtedNotes, eats: []};
 
     $(".landmark-holder").each(function() {
       var inputtedLandmark = $(this).find("input").val();
       newPlace.landmarks.push(inputtedLandmark);
+    });
+
+    $(".eat").each(function() {
+      var inputtedEat = $(this).val();
+      newPlace.eats.push(inputtedEat);
     });
 
     $("ul#place-results").append("<li><span class='place'>" + newPlace.place + "</span></li>");
@@ -34,6 +46,10 @@ $(document).ready(function(){
         $("ul#landmark-results").append("<li>" + landmark + "</li>");
       });
 
+      newPlace.eats.forEach(function(eat) {
+        $("ul#eat-results").append("<li>" + eat + "</li>");
+      });
+
       $("#notes-results").text(newPlace.notes);
       $(".place-info").show();
     });
@@ -43,12 +59,19 @@ $(document).ready(function(){
     $("textarea").val("");
 
     $("#landmark-forms").replaceWith('<div id="landmark-forms">' +
-                                '<div class="landmark-holder">' +
+                                      '<div class="landmark-holder">' +
+                                        '<div class="form-group">' +
+                                          '<label for="landmarks"><b>Landmarks:</b></label>' +
+                                          '<input required id="landmarks" type="text" class="form-control landmarks">' +
+                                        '</div>' +
+                                      '</div>' +
+                                    '</div>');
+
+    $(".eat-holder").replaceWith('<div class="eat-holder">' +
                                   '<div class="form-group">' +
-                                    '<label for="landmarks"><b>Landmarks:</b></label>' +
-                                    '<input required id="landmarks" type="text" class="form-control landmarks">' +
+                                    '<label for="eat"><b>Eats:</b></label>' +
+                                    '<input type="text" class="form-control eat">' +
                                   '</div>' +
-                                '</div>' +
                                 '</div>');
 
   $("#result").show();

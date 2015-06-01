@@ -9,7 +9,9 @@
   <body>
     <div class="jumbotron">
       <div class="container">
-        <h1>Places you've been</h1>
+        <div class="bottom-border">
+          <h1>Places you've been</h1>
+        </div>
         <p class="lead"><br>Catalog all the places that you've been!</p>
         <form id="places">
           <!--The start of the form-->
@@ -25,6 +27,13 @@
                 </div>
               </div>
             </div>
+            <div class="eat-holder">
+              <div class="form-group">
+                <label for="eat"><b>Eats:</b></label>
+                <input type="text" class="form-control eat">
+              </div>
+            </div>
+            <div class="form-group">
             <label for="time-of-year"><b>Time of year you visited: </b></label>
             <select class="form-control" id="time-of-year">
               <option value="No Time Selected">Select a Time of Year</option>
@@ -33,6 +42,7 @@
               <option value="Autumn">Autumn</option>
               <option value="Winter">Winter</option>
             </select>
+            </div>
             <label for="notes"><b>Notes:</b></label>
             <textarea id="notes" rows="5" class="form-control"></textarea>
           </div>
@@ -43,20 +53,25 @@
               <ul id="place-results">
               </ul>
             </div>
-            <div class="col-md-4 place-info">
+            <div class="col-md-6 place-info">
               <div class="show-place">
-                <h3></h3>
-                <p>Time of Year: <span id="time-of-year-results"></span></p>
+                <h3 class="bottom-border"></h3>
+                <p><span id="notes-results"></span></p>
                 <p>Landmarks:
                 <ul id="landmark-results">
                 </ul>
                 </p>
-                <p>Notes: <span id="notes-results"></span></p>
+                <p>Places to Eat:
+                <ul id="eat-results">
+                </ul>
+                </p>
+                <p>Time of Year: <span id="time-of-year-results"></span></p>
               </div>
             </div>
           </div>
           <button type="submit" class="btn btn-lg btn-primary">Submit</button>
           <span id="new-landmark" class="btn btn-lg btn-danger">Add Another Landmark</span>
+          <span id="new-eat" class="btn btn-lg btn-danger">Add Another place to Eat!</span>
         </div>
       </form>
     </div>
