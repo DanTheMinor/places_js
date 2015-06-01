@@ -37,7 +37,7 @@ $(document).ready(function(){
       newPlace.eats.push(inputtedEat);
     });
 
-    $("ul#place-results").append("<li><span class='place'>" + newPlace.place + "</span></li>");
+    $("ul#place-results").append("<li>" + "<span class='glyphicon glyphicon-pushpin' aria-hidden='true'></span>" + "<span class='place'>" + newPlace.place + "</span>" + "</li>");
 
 
     $(".place").last().click(function() {
@@ -50,17 +50,32 @@ $(document).ready(function(){
                                        '</div>');
 
 
+      if (!(inputtedImage === "")) {
       $("div.place-image").append('<div class="place-image">' +
                                          "<img src=" + inputtedImage + "/>" +
                                        '</div>');
+      } else {
+      $("div.place-image").replaceWith('<div class="place-image">' +
+                                       '</div>');
+      }
+      if (!(newPlace.eats[0] === "" )) {
+        newPlace.eats.forEach(function(eat) {
+          $("ul#eat-results").append("<li>" + eat + "</li>");
+        });
+      }
+      else {
+        $("ul#eat-results").append("<li>No eats 'round these parts</li>");
+      }
 
-      newPlace.landmarks.forEach(function(landmark) {
-        $("ul#landmark-results").append("<li>" + landmark + "</li>");
-      });
 
-      newPlace.eats.forEach(function(eat) {
-        $("ul#eat-results").append("<li>" + eat + "</li>");
-      });
+      if (!(newPlace.landmarks[0] === "" )) {
+        newPlace.landmarks.forEach(function(landmark) {
+          $("ul#landmark-results").append("<li>" + landmark + "</li>");
+        });
+      }
+      else {
+        $("ul#landmark-results").append("<li>No landmarks entered</li>");
+      }
 
       $("#notes-results").text(newPlace.notes);
       $(".place-info").show();
@@ -74,7 +89,7 @@ $(document).ready(function(){
                                       '<div class="landmark-holder">' +
                                         '<div class="form-group">' +
                                           '<label for="landmarks"><b>Landmarks:</b></label>' +
-                                          '<input required id="landmarks" type="text" class="form-control landmarks">' +
+                                          '<input id="landmarks" type="text" class="form-control landmarks">' +
                                         '</div>' +
                                       '</div>' +
                                     '</div>');

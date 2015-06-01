@@ -15,6 +15,7 @@
         <p class="lead"><br>Catalog all the places that you've been!</p>
         <form id="places">
           <!--The start of the form-->
+
             <div class="form-group">
               <label for="location"><b>Location:</b></label>
               <input required id="location" type="text" class="form-control">
@@ -28,12 +29,12 @@
               </div>
             </div>
             <div id="eat-forms">
-            <div class="eat-holder">
-              <div class="form-group">
-                <label for="eat"><b>Eats:</b></label>
-                <input type="text" class="form-control eat">
+              <div class="eat-holder">
+                <div class="form-group">
+                  <label for="eat"><b>Eats:</b></label>
+                  <input type="text" class="form-control eat">
+                </div>
               </div>
-            </div>
             </div>
             <div class="form-group">
             <label for="time-of-year"><b>Time of year you visited: </b></label>
@@ -54,6 +55,11 @@
               <input id="image-input" type="text" class="form-control">
             </div>
           <!--The end of the form-->
+          <div id="buttons">
+            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+            <span id="new-landmark" class="btn btn-lg btn-danger">Add Another Landmark</span>
+            <span id="new-eat" class="btn btn-lg btn-danger">Add Another place to Eat!</span>
+          </div>
           <div id="result" class="alert alert-info row">
             <div class="col-md-6">
               <h2>Places you've been!</h2>
@@ -78,9 +84,6 @@
               </div>
             </div>
           </div>
-          <button type="submit" class="btn btn-lg btn-primary">Submit</button>
-          <span id="new-landmark" class="btn btn-lg btn-danger">Add Another Landmark</span>
-          <span id="new-eat" class="btn btn-lg btn-danger">Add Another place to Eat!</span>
         </div>
       </form>
     </div>
