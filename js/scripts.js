@@ -1,11 +1,11 @@
 $(document).ready(function(){
   $("#new-landmark").click(function() {
-    $("#landmarks").append('<div class="landmarks">' +
-                                 '<div class="form-group">' +
+    $("#landmark-forms").append('<div class="landmark-holder">' +
+                                  '<div class="form-group">' +
                                     '<label for="landmarks"><b>Landmarks:</b></label>' +
                                     '<input required id="landmarks" type="text" class="form-control landmarks">' +
-                                 '</div>' +
-                               '</div>');
+                                  '</div>' +
+                                '</div>');
   });
 
   $("form#places").submit(function(event) {
@@ -14,9 +14,11 @@ $(document).ready(function(){
     var inputtedLocation = $("input#location").val();
     var inputtedTimeOfYear = $("select#time-of-year").val();
     var inputtedNotes = $("textarea#Notes").val();
+
     var newPlace = {place: inputtedLocation, landmarks: [], timeOfYear: inputtedTimeOfYear, notes: inputtedNotes};
-    $(".landmarks").each(function() {
-      var inputtedLandmark = $(this).find("input#landmarks").val();
+
+    $(".landmark-holder").each(function() {
+      var inputtedLandmark = $(this).find("input.landmarks").val();
       newPlace.landmarks.push(inputtedLandmark);
     });
 
