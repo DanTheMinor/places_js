@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>Places you've been</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/styles.css" type="text/css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/scripts.js"></script>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Places you've been</h1>
+        <p class="lead"><br>Catalog all the places that you've been!</p>
+        <form id="places">
+          <div class="form-group">
+            <label for="location"><b>Location:</b></label>
+            <input required id="location" type="text" class="form-control">
+            <br>
+            <div class="landmarks">
+              <label for="landmarks"><b>Landmarks:</b></label>
+              <input required id="landmarks" type="text" class="form-control landmarks">
+            </div>
+            <label for="time-of-year"><b>Time of year you visited: </b></label>
+            <select class="form-control" id="time-of-year">
+              <option value="No Time Selected">Select a Time of Year</option>
+              <option value="Spring">Spring</option>
+              <option value="Summer">Summer</option>
+              <option value="Autumn">Autumn</option>
+              <option value="Winter">Winter</option>
+            </select>
+            <label for="notes"><b>Notes:</b></label>
+            <textarea id="notes" rows="5" class="form-control"></textarea>
+          </div>
+          <div id="result" class="alert alert-info">
+            <h2>Places you've been!</h2>
+            <ul id="place-results">
+
+            </ul>
+            <div class="show-place">
+              <h3></h3>
+
+              <p>Time of Year: <span id="time-of-year-results"></span></p>
+              <p>Landmarks:
+              <ul id="landmark-results">
+
+              </ul>
+              </p>
+              <p>Notes: <span id="notes-results"></span></p>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+          <span id="new-landmark" class="btn btn-lg btn-danger">Add Another Landmark</span>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
